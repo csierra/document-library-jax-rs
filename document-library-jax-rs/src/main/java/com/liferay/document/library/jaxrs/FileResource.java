@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -34,6 +35,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import com.liferay.portal.kernel.util.StringUtil;
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 
@@ -107,7 +109,7 @@ public class FileResource {
 		return FileRepr.fromFileEntry(
 			_dlAppService.updateFileEntry(
 				_fileEntry.getFileEntryId(), fileRepr.getFileName(),
-				attachment.getContentType().getType(), fileRepr.getTitle(),
+				attachment.getContentType().toString(), fileRepr.getTitle(),
 				fileRepr.getDescription(), changelog, majorVersion,
 				attachment.getObject(byte[].class), new ServiceContext()),
 			_fileUriBuilder);

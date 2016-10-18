@@ -104,7 +104,7 @@ public class FolderResource {
 		return FileRepr.fromFileEntry(
 			_dlAppService.addFileEntry(
 				_repositoryId, _folderId, fileRepr.getFileName(),
-				attachment.getContentType().getType(), fileRepr.getTitle(),
+				attachment.getContentType().toString(), fileRepr.getTitle(),
 				fileRepr.getDescription(), changelog,
 				attachment.getObject(byte[].class), new ServiceContext()),
 			_fileUriBuilder);
