@@ -32,7 +32,8 @@ public class FileRepr {
 		return new FileRepr(
 			fileEntry.getFileEntryId(), fileEntry.getDescription(),
 			fileEntry.getFileName(), fileEntry.getTitle(), fileEntry.getSize(),
-			uriBuilder.build(fileEntry.getUuid()).toString());
+			uriBuilder.build(fileEntry.getFileEntryId()).toString(),
+			uriBuilder.path("content").build(fileEntry.getUuid()).toString());
 	}
 
 	public FileRepr() {
@@ -40,7 +41,7 @@ public class FileRepr {
 
 	public FileRepr(
 		long id, String description, String fileName, String title, long size,
-		String url) {
+		String url, String content) {
 
 		_id = id;
 		_description = description;
@@ -48,6 +49,11 @@ public class FileRepr {
 		_title = title;
 		_size = size;
 		_url = url;
+		_content = content;
+	}
+
+	public String getContent() {
+		return _content;
 	}
 
 	public String getDescription() {
@@ -74,8 +80,8 @@ public class FileRepr {
 		return _url;
 	}
 
-	public long getUuid() {
-		return _id;
+	public void setContent(String content) {
+		_content = content;
 	}
 
 	public void setDescription(String description) {
@@ -98,8 +104,8 @@ public class FileRepr {
 		_title = title;
 	}
 
-	public void setUuid(long uuid) {
-		_id = uuid;
+	public void setUrl(String url) {
+	    _url = url;
 	}
 
 	private String _description;
@@ -108,5 +114,6 @@ public class FileRepr {
 	private long _size;
 	private String _title;
 	private String _url;
+	private String _content;
 
 }
