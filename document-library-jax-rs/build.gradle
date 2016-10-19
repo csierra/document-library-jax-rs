@@ -27,3 +27,7 @@ dependencies {
 	provided group: 'io.swagger', name: 'swagger-jaxrs', version: '1.5.9'
 	provided group: 'io.swagger', name: 'swagger-models', version: '1.5.9'
 }
+
+liferay {
+	deployDir = "/Users/sac/git/liferay/bundles/liferay-dxp-digital-enterprise-7.0-ga1/deploy"
+}
