@@ -33,7 +33,7 @@ public class RepositoryRepr {
 
 		return new RepositoryRepr(
 			repository.getRepositoryId(), new Date(), "repository",
-			"repository", "uuid",
+			"repository",
 			uriBuilder.build(repository.getRepositoryId()).toString());
 	}
 
@@ -42,13 +42,12 @@ public class RepositoryRepr {
 
 	public RepositoryRepr(
 		long repositoryId, Date createDate, String description, String name,
-		String uuid, String url) {
+		String url) {
 
 		_repositoryId = repositoryId;
 		_createDate = createDate;
 		_description = description;
 		_name = name;
-		_uuid = uuid;
 		_url = url;
 	}
 
@@ -72,10 +71,6 @@ public class RepositoryRepr {
 		return _url;
 	}
 
-	public String getUuid() {
-		return _uuid;
-	}
-
 	public void setCreateDate(Date createDate) {
 		_createDate = createDate;
 	}
@@ -96,15 +91,10 @@ public class RepositoryRepr {
 		_url = url;
 	}
 
-	public void setUuid(String uuid) {
-		_uuid = uuid;
-	}
-
 	private Date _createDate;
 	private String _description;
 	private String _name;
 	private long _repositoryId;
 	private String _url;
-	private String _uuid;
 
 }
